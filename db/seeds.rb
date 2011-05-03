@@ -10,7 +10,9 @@ League.create( :name => 'AKQA Table Tennis' ).tap do |league|
   
   [ 'James De Jesus', 'Vinit Patil', 'Thomas Ko', 'Miles Lukas' ].each do |name|
     
-    Player.create( :name => name ).tap do |player|
+    puts "Trying to create player #{name}"
+    
+    Player.create( :name => name, :email => Faker::Internet.email, :password => Devise.friendly_token[0,20] ).tap do |player|
       
       Ranking.create( :player => player, :league => league )
       
