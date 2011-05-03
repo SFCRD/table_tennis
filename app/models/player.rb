@@ -10,4 +10,6 @@ class Player < ActiveRecord::Base
   validates_presence_of :name
   
   has_many :rankings
+  
+  has_many :challenges
 end
