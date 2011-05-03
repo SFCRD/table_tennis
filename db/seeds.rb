@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+League.create( :name => 'AKQA Table Tennis' ).tap do |league|
+  
+  [ 'James De Jesus', 'Vinit Patil', 'Thomas Ko', 'Miles Lukas' ].each do |name|
+    
+    puts "Trying to create player #{name}"
+    
+    Player.create( :name => name, :email => Faker::Internet.email, :password => Devise.friendly_token[0,20] ).tap do |player|
+      
+      Ranking.create( :player => player, :league => league )
+      
+    end
+    
+  end
+  
+end
