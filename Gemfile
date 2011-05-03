@@ -29,3 +29,7 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+group :development, :test do
+  gem 'faker'
+  gem 'fabrication'
+end
