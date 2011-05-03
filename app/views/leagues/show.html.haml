@@ -4,7 +4,7 @@
 %ul
   - list_of @league.rankings do |ranking|
     = ranking.position
-    = ranking.player.name
+    = link_to ranking.player.name, ranking.player
 
 = link_to 'Edit', edit_league_path(@league)
 |
