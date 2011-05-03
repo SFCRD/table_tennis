@@ -3,7 +3,8 @@ class CreateChallenges < ActiveRecord::Migration
     create_table :challenges do |t|
       t.integer :challenger_id
       t.integer :opponent_id
-
+      t.integer :league_id
+      
       t.timestamps
     end
   end

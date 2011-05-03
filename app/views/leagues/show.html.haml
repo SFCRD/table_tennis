@@ -2,7 +2,7 @@
 
 %h1= @league.name
 %ul
-  - list_of @league.rankings do |ranking|
+  = list_of @league.rankings do |ranking|
     = ranking.position
     = link_to ranking.player.name, ranking.player
 
