@@ -1,4 +1,6 @@
 TableTennis::Application.routes.draw do
+  devise_for :players
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -38,6 +40,8 @@ TableTennis::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
+
+  root :to => 'leagues#index'
 
   # Sample resource route within a namespace:
   #   namespace :admin do
