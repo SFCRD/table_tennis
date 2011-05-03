@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'haml', '~> 3.1.1'
 gem 'devise', '~> 1.3.0'
 gem 'inherited_resources', '~> 1.2.2'
+gem 'formtastic', '~> 1.2.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
