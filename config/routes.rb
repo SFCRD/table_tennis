@@ -44,6 +44,8 @@ TableTennis::Application.routes.draw do
   resources :leagues
   
   resources :players
+  
+  resources :rankings
 
   root :to => 'leagues#index'
 

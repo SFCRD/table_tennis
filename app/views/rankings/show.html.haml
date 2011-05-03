@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%h1= link_to @ranking.player.name, player_path( @ranking.player )
+%h2
+  = @ranking.position
+  in
+  = link_to @ranking.league.name, league_path( @ranking.league )
+
+= link_to 'Edit', edit_ranking_path(@ranking)
+|
+= link_to 'Back', rankings_path
