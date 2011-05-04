@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  challenger_id: 1
+  opponent_id: 1
+
+two:
+  challenger_id: 1
+  opponent_id: 1

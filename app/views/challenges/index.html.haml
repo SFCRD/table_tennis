@@ -1,0 +1,22 @@
+%h1 Listing Challenges
+
+%table
+  %tr
+    %th Challenger
+    %th Opponent
+    %th Ranking
+    %th League
+    %th
+    %th
+    %th
+  - @challenges.each do |challenge|
+    %tr
+      %td= challenge.player.name
+      %td= challenge.ranking.player.name
+      %td= challenge.ranking.position
+      %td= challenge.ranking.league.name
+      %td= link_to 'Show', league_challenge_path( @league, challenge )
+      / %td= link_to 'Edit', edit_league_challenge_path( @league, challenge )
+      %td= link_to 'Destroy', [ @league, challenge ], :confirm => 'Are you sure?', :method => :delete
+%br
+= link_to 'New Challenge', new_league_challenge_path(@league)

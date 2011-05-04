@@ -41,10 +41,14 @@ TableTennis::Application.routes.draw do
   #     end
   #   end
 
-  resources :leagues
+  resources :leagues do
+    resources :challenges, :only => [ :index, :new, :create, :show, :destroy ]
+  end
   
   resources :players
-
+  
+  resources :rankings, :only => [ :index, :show, :new ]
+  
   root :to => 'leagues#index'
 
   # Sample resource route within a namespace:

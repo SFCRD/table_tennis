@@ -2,9 +2,9 @@
 
 %h1= @player.name
 %ul
-  - list_of @player.rankings do |ranking|
-    = ranking.position
-    = link_to ranking.league.name, ranking.league
+  = list_of @player.rankings do |ranking|
+    = link_to ranking.position, ranking_path( ranking )
+    = link_to ranking.league.name, league_path( ranking.league )
 
 = link_to 'Edit', edit_player_path(@player)
 |

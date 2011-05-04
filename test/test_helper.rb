@@ -19,3 +19,7 @@ class ActiveSupport::TestCase
     assert model.errors[field.to_sym].nil?, "Validation error on #{field.to_s}."
   end
 end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+end

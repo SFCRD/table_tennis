@@ -1,0 +1,8 @@
+%p#notice= notice
+
+%h1
+  = @challenge.player.name
+  vs.
+  = @challenge.ranking.player.name
+
+= link_to 'Back', league_challenges_path(@league)
