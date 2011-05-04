@@ -7,14 +7,12 @@
     %th League
     %th
     %th
-    %th
   - @rankings.each do |ranking|
     %tr
       %td= link_to ranking.position, ranking_path( ranking )
       %td= link_to ranking.player.name, player_path( ranking.player )
       %td= link_to ranking.league.name, league_path( ranking.league )
       %td= link_to 'Show', ranking
-      %td= link_to 'Edit', edit_ranking_path(ranking)
       %td= link_to 'Destroy', ranking, :confirm => 'Are you sure?', :method => :delete
 %br
 = link_to 'New Ranking', new_ranking_path
