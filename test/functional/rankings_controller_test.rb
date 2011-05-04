@@ -28,7 +28,7 @@ class RankingsControllerTest < ActionController::TestCase
   end
   
   test "should not post create if signed out" do
-    post :create, :ranking => { :player => Fabricate( :player ), :league => Fabricate( :league ) }
+    post :create, :ranking => { :league => Fabricate( :league ) }
     assert_response 302
     assert_redirected_to new_player_session_path
   end
@@ -36,8 +36,29 @@ class RankingsControllerTest < ActionController::TestCase
     player = Fabricate( :player )
     sign_in player
     assert_difference( 'Ranking.count' ) do
-      post :create, :ranking => { :player => player, :league => Fabricate( :league ) }
+      post :create, :ranking => { :league => Fabricate( :league ) }
     end
+  end
+  test "should redirect to league path after create" do
+    player = Fabricate( :player )
+    sign_in player
+    league = Fabricate( :league )
+    post :create, :ranking => { :league => league }
+    assert_redirected_to league_path( league )
+  end
+  test "should create a ranking referencing the given league" do
+    player = Fabricate( :player )
+    sign_in player
+    league = Fabricate( :league )
+    post :create, :ranking => { :league => league }
+    assert_equal league, Ranking.last.league
+  end
+  test "should create a ranking referencing the current_player" do
+    player = Fabricate( :player )
+    sign_in player
+    league = Fabricate( :league )
+    post :create, :ranking => { :league => league }
+    assert_equal player, Ranking.last.player
   end
   
 end
