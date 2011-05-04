@@ -41,7 +41,7 @@ TableTennis::Application.routes.draw do
   #     end
   #   end
 
-  resources :leagues do
+  resources :leagues, :only => [ :index, :show ] do
     resources :challenges, :only => [ :index, :new, :create, :show, :destroy ]
   end
   
