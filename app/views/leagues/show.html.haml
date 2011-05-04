@@ -16,6 +16,7 @@
     vs
     = link_to "##{challenge.ranking.position}", ranking_path( challenge.ranking )
     = link_to challenge.ranking.player.name, player_path( challenge.ranking.player )
+    = link_to "Show", league_challenge_path( @league, challenge )
 
 - if player_signed_in? and not @league.member? current_player
   = render :partial => 'rankings/create', :locals => { :league => @league }
