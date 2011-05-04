@@ -1,5 +1,5 @@
 class LeaguesController < InheritedResources::Base
-  actions :all
+  actions :index, :show
   
-  before_filter :authenticate_player!, :except => [ :index, :show ]
+  # before_filter :authenticate_player!, :except => [ :index, :show ]
 end
