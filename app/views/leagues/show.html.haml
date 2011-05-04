@@ -13,10 +13,7 @@
   = @league.challenges
 
 - if player_signed_in? and not @league.member? current_player
-  = form_for Ranking.new do |f|
-    = f.hidden_field :player_id, :value => current_player.id
-    = f.hidden_field :league_id, :value => @league.id
-    = f.submit
+  = render :partial => 'rankings/create', :locals => { :league => @league }
 
 = link_to 'Edit', edit_league_path(@league)
 |
