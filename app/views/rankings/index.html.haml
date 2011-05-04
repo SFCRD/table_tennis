@@ -10,7 +10,7 @@
     %th
   - @rankings.each do |ranking|
     %tr
-      %td= ranking.position
+      %td= link_to ranking.position, ranking_path( ranking )
       %td= link_to ranking.player.name, player_path( ranking.player )
       %td= link_to ranking.league.name, league_path( ranking.league )
       %td= link_to 'Show', ranking
