@@ -15,8 +15,8 @@
       %td= challenge.ranking.player.name
       %td= challenge.ranking.position
       %td= challenge.ranking.league.name
-      %td= link_to 'Show', challenge
-      %td= link_to 'Edit', edit_challenge_path(challenge)
-      %td= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', league_challenge_path( @league, challenge )
+      / %td= link_to 'Edit', edit_league_challenge_path( @league, challenge )
+      %td= link_to 'Destroy', [ @league, challenge ], :confirm => 'Are you sure?', :method => :delete
 %br
-= link_to 'New Challenge', new_challenge_path
+= link_to 'New Challenge', new_league_challenge_path(@league)
