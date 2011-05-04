@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(:version => 20110503230353) do
 
   create_table "challenges", :force => true do |t|
-    t.integer  "challenger_id"
-    t.integer  "opponent_id"
+    t.integer  "player_id"
+    t.integer  "ranking_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

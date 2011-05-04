@@ -47,6 +47,8 @@ TableTennis::Application.routes.draw do
   
   resources :rankings, :only => [ :index, :show, :new ]
 
+  resources :challenges, :only => [ :index, :new ]
+  
   root :to => 'leagues#index'
 
   # Sample resource route within a namespace:
