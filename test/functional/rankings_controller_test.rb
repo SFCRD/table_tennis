@@ -27,9 +27,17 @@ class RankingsControllerTest < ActionController::TestCase
     assert_equal ranking, assigns( :ranking )
   end
   
-  test "should get new" do
-    get :new
-    assert_response :success
+  test "should not post create if signed out" do
+    post :create, :ranking => { :player => Fabricate( :player ), :league => Fabricate( :league ) }
+    assert_response 302
+    assert_redirected_to new_player_session_path
+  end
+  test "should post create if signed in" do
+    player = Fabricate( :player )
+    sign_in player
+    assert_difference( 'Ranking.count' ) do
+      post :create, :ranking => { :player => player, :league => Fabricate( :league ) }
+    end
   end
   
 end

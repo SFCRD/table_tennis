@@ -47,7 +47,7 @@ TableTennis::Application.routes.draw do
   
   resources :players
   
-  resources :rankings, :only => [ :index, :show, :new ]
+  resources :rankings, :only => [ :index, :show, :create ]
   
   root :to => 'leagues#index'
 

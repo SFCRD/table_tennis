@@ -21,3 +21,5 @@ League.create( :name => 'AKQA Table Tennis' ).tap do |league|
   end
   
 end
+
+Player.create( :name => "Jeremy Ruppel", :email => 'me@me.com', :password => "idontplay" )
