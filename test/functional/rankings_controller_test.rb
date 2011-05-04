@@ -27,9 +27,6 @@ class RankingsControllerTest < ActionController::TestCase
     assert_equal ranking, assigns( :ranking )
   end
   
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+
   
 end
