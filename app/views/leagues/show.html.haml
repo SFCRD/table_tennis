@@ -1,10 +1,15 @@
 %p#notice= notice
 
 %h1= @league.name
+
+%h2 Rankings
 %ul
   = list_of @league.rankings do |ranking|
     = link_to ranking.position, ranking_path( ranking )
     = link_to ranking.player.name, player_path( ranking.player )
+
+%h2 Challenges
+%ul
 
 = link_to 'Edit', edit_league_path(@league)
 |
