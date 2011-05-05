@@ -1,14 +1,11 @@
-%h1 Listing leagues
-
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-  - @leagues.each do |league|
-    %tr
-      %td= league.name
-      %td= link_to 'Show', league
-      %td= link_to 'Edit', edit_league_path(league)
-      %td= link_to 'Destroy', league, :confirm => 'Are you sure?', :method => :delete
+%h2 All Leagues
+%ul
+  - collection.each do |league|
+    %li.section
+      %h3= link_to league.name, league_path( league )
+      %p.statistic
+        %span= league.rankings.size
+        Ranked Players
+      %p.statistic
+        %span= league.challenges.size
+        Pending Challenges
