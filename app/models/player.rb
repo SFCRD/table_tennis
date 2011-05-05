@@ -12,4 +12,17 @@ class Player < ActiveRecord::Base
   has_many :rankings
   
   has_many :challenges
+  
+  def in?( league )
+    rankings.map( &:league ).include? league
+  end
+
+  def ranking( league )
+    in?( league ) ? rankings.select { |r| r.league.eql? league }.first : false
+  end
+  
+  def position( league )
+    in?( league ) ? ranking( league ).position : false
+  end
+
 end

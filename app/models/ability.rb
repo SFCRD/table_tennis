@@ -4,7 +4,18 @@ class Ability
   def initialize( player )
     
     can :challenge, Ranking do |ranking|
-      true
+      
+      league = ranking.league
+      
+      current = player.ranking( league )
+      
+      ( 
+        ranking.player != player and 
+        player.in?( league ) and 
+        current.reach.include?( current.position - ranking.position ) and
+        !ranking.challenged? and
+        !current.challenged?
+      )
     end
     
     can :join, League do |league|

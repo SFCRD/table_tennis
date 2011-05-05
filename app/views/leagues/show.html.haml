@@ -5,7 +5,8 @@
   = list_of @league.rankings do |ranking|
     = link_to ranking.position, ranking_path( ranking )
     = link_to ranking.player.name, player_path( ranking.player )
-    = render :partial => 'challenges/create', :locals => { :league => @league, :ranking => ranking }
+    - if player_signed_in? and can? :challenge, ranking
+      = render :partial => 'challenges/create', :locals => { :league => @league, :ranking => ranking }
 
 %h2 Challenges
 %ul
